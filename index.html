@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계절별 교실 환경 실습</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>계절별 교실 환경 실습</h1>
+      <p>
+        7학년 친구들이 계절과 시간대에 맞는 교실 환경을 직접 설정해 보고,
+        피드백을 받을 수 있는 학습 도구예요.
+      </p>
+    </header>
+
+    <main class="app-container">
+      <section class="controls-panel">
+        <h2>1. 계절과 시간대를 선택해요</h2>
+        <div class="select-group">
+          <label for="season">계절</label>
+          <select id="season" class="input-select">
+            <option value="spring">봄</option>
+            <option value="summer">여름</option>
+            <option value="autumn">가을</option>
+            <option value="winter">겨울</option>
+          </select>
+        </div>
+        <div class="select-group">
+          <label for="timeOfDay">시간대</label>
+          <select id="timeOfDay" class="input-select">
+            <option value="morning">아침</option>
+            <option value="noon">점심</option>
+            <option value="evening">저녁</option>
+          </select>
+        </div>
+        <button id="loadPreset" class="button secondary">추천 값 불러오기</button>
+      </section>
+
+      <section class="settings-panel">
+        <h2>2. 교실 환경을 조절해요</h2>
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="temperature">온도 (°C)</label>
+            <span id="temperatureValue" class="value-indicator">23°C</span>
+          </div>
+          <input
+            type="range"
+            id="temperature"
+            min="16"
+            max="32"
+            step="0.5"
+            value="23"
+          />
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="humidity">습도 (%)</label>
+            <span id="humidityValue" class="value-indicator">45%</span>
+          </div>
+          <input type="range" id="humidity" min="20" max="80" step="1" value="45" />
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="ventilation">환기 (횟수/시간)</label>
+            <span id="ventilationValue" class="value-indicator">4회</span>
+          </div>
+          <input type="range" id="ventilation" min="0" max="8" step="1" value="4" />
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="lighting">조명 밝기 (럭스)</label>
+            <span id="lightingValue" class="value-indicator">500lx</span>
+          </div>
+          <input type="range" id="lighting" min="200" max="900" step="10" value="500" />
+        </div>
+      </section>
+
+      <section class="feedback-panel">
+        <h2>3. 피드백을 받아요</h2>
+        <button id="checkSettings" class="button primary">설정 피드백 받기</button>
+        <div id="feedback" class="feedback-card" aria-live="polite"></div>
+        <div id="tips" class="tips-card"></div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        ※ 값은 교육 목적의 참고용이며, 학교마다 약간씩 다를 수 있어요. 실제
+        수업에서는 선생님의 안내를 따라 주세요.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
